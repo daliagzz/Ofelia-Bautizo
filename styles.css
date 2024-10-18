@@ -1,0 +1,704 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Waterfall&display=swap');
+:root {
+    --color-claro: rgb(244, 205, 239);
+    --color-fondo: rgb(241, 240, 241);
+    --color-texto: rgb(84, 12, 74);
+    --color-dehover: rgb(241, 121, 231);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--color-fondo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dehover); /**/
+}
+
+/*<uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 400 to 700*/
+
+.dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-size: 95px;
+  font-weight: 700;
+  font-style: normal;
+  transform: rotate(-9deg)skewX(-5deg);
+  margin-left: 0;
+  text-shadow: 0 0 4px rgb(245, 171, 114);
+}
+
+.primeraHoja .dancing-script {
+    font-family: "Dancing Script", cursive;
+    font-size: 40px;
+    font-weight: 700;
+    font-style: normal;
+    margin-left: -20px;
+    transform: none;
+  }
+
+
+
+
+/* CSS de tarjetas giratorias*/
+.card {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    margin: 20px;
+}
+.card .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 3s;
+}
+.card .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .front h5 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.card .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3, 35, 54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .back .link {
+    border-top: solid 1px #f3f3f3;
+    height: 50px;
+    line-height: 50px;
+
+}
+.card .back .link a {
+    color: #f3f3f3;
+}
+
+.card .back h5 {
+    font-size: 30px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+.card .back p {
+    letter-spacing: 1px;
+}
+
+.card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+}
+/* TREMINA CSS DE Tarjetas Giratorias*/
+
+
+
+
+
+/* INICIA Tarjetas DESLIZANTES ____________------------  -------*/
+/*.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+}*/
+
+audio {
+    display: none;
+    background-color: rgb(69, 69, 123);
+}
+.playButton {
+    height:150px;
+    width: 220px;
+    border-radius: 25px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.container .carda {
+    position: relative;
+    max-width: 250px;
+    height: 220px;
+    background-color: #fff;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+}
+
+.container .carda:hover {
+    height: 530px;
+}
+
+.container .carda .image {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    top: -60px;
+    left: 20px;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+.container .carda .image img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.container .carda .content {
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.container .carda:hover .content{
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: 0.3s;
+}
+
+/* TERMINA TARKETAS DEslizantes--__________----------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    /*background-image: url("./img/back_dasy1.png");*/
+    /*background-image: url("./img/fondo_flores6.png");
+    background-image: url("./img/opcion2.png");
+    background-image: url("./img/opcion3.png");*/
+    background-image: url("./img/base-Ofelia12.png");
+    /*background-color: rgb(225,203,197);*/
+    
+    background-size: 380px;
+    text-align: center;
+    align-items: center;
+    color: var(--color-dehover);
+
+}
+.w100 {
+    font-weight: 100;
+}
+.w300 {
+    font-weight: 300;
+}
+.w400 {
+    font-weight: 400;
+}
+.w500 {
+    font-weight: 500;
+}
+.w600 {
+    font-weight: 600;
+}
+.w800 {
+    font-weight: 800;
+}
+
+.espacio10 {
+    height: 10px;
+}
+.espacio20 {
+    height: 20px;
+}
+.espacio30 {
+    height: 30px;
+}
+.espacio40 {
+    height: 40px;
+}
+.espacio50 {
+    height: 50px;
+}
+.espacio70 {
+    height: 70px;
+}
+
+hr {
+    border: 0; /* Quita el borde predeterminado del hr */
+    height: 1px; /* Establece la altura del hr */
+    background: linear-gradient(to bottom, #ffff 50%, rgb(159, 118, 84) 50%); /* Aplica dos colores: rojo y azul, y un fondo verde */
+}
+hr.grueso {
+    height: 5px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(159,118,84);
+    text-align: center;
+    margin-top: 30px;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(159,118,84);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(159,118,84);
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /*border: 3px solid blue;*/
+
+}
+
+
+/*------------------------------COLORS--------------------*/
+.grey {
+    color: rgb(129, 139, 149);
+}
+.whiteShadow {
+    color: #ffff;
+    text-shadow: 0 5px 5px rgb(159, 118, 84);
+    text-shadow: 0 3px 2px rgb(85, 53, 28);
+    /*text-shadow: 0 0 5px #e3bbab;*/
+}
+.white {
+    color: #ffff;
+}
+.pink {
+    color: #e3bbab;/*rgb(247, 173, 189);*/
+}
+.pinky {
+    color: #f1dcd4;
+}
+.darkBrown {
+    color: rgb(159, 118, 84);
+}
+.goldBrown {
+    color: #d27b4e;/*#a08429;/*rgb(178, 139, 79);*/
+}
+.orange {
+    color: #f9887e;
+}
+.fiusha {
+    color: #e3bbab;/*rgb(173, 80, 108);*/
+}
+.beige {
+    color: rgb(239, 233, 230);
+}
+
+.container .portada {
+    background: transparent;
+    width: 280px;
+    height: auto;
+    margin-top: 0;
+    /*border: 3px solid red;*/
+}
+
+/*.logo img {
+    position: relative;
+    width: 360px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: -50px;
+}*/
+
+
+
+/*de ejercicio hover text arriba de la foto con flores de Ofelia-----------------------------------
+.image {
+    position: relative;
+    width: 360px;
+    left: -40px;
+}
+.image__img {
+    display: block;
+    width: 100%;
+}
+.image__overlay {
+    position: absolute;
+    top: 0px;
+    left: 35px;
+    width: 80%;
+    height: 80%;
+    background: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+    border-radius: 50%;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+
+}
+.image__overlay:hover {
+    opacity: 1;
+}
+
+AQUÍ Acaba correctamente-----------------------------*/
+
+.image {
+    position: relative;
+    width: 360px;
+    
+    left: -40px;
+    background-color: transparent;
+}
+.image__img {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+}
+.image__overlay {
+    position: absolute;
+    top: -11px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(255, 255, 255, 0.8);*/
+    color: #ffffff;
+    border-radius: 10px;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.25s;
+    transition: transform 0.5s;
+    background-color: transparent;
+    z-index: 1;
+
+}
+.image__overlay:hover {
+    transform: scale(1.3);
+
+
+}
+
+
+
+
+
+
+
+
+.logo2 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+/*.logo2 img {
+    width: 220px;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 350px;
+
+
+}*/
+.novios img{
+    width: 380px;
+}
+
+/*Instrucciones para desplegar el area de la "cuenta regresiva"*/
+
+.reloj {
+    /*background: rgb(219, 217, 195);/*rgb(129, 139, 149);*/
+   background: #e3bbab;/*#99867b;/*#967435;/*rgb(159, 118, 84);/*#5e3622;/*#302b02;/*#f4e6cd;/*green;/*rgb(252, 204, 211);*/
+    /*background: rgb(247, 173, 189);*/
+    background: rgb(240,220,212);
+    width: 380px;
+    margin-top: -5px;
+    font-family: 'Montserrat' sans-serif;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+
+
+    /*border: 3px solid red;*/
+    
+}
+.reloj2 {
+    /*background: rgb(219, 217, 195);/*rgb(129, 139, 149);*/
+   /* background: #99867b;/*#967435;/*rgb(159, 118, 84);/*#5e3622;/*#302b02;/*#f4e6cd;/*green;/*rgb(252, 204, 211);*/
+    /*background: rgb(247, 173, 189);*/
+    width: 380px;
+    margin-top: -5px;
+    font-family: 'Montserrat' sans-serif;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+
+
+    /*border: 3px solid red;*/
+    
+}
+.marco {
+    width: 280px;
+    background:/* #e6d9c8;#e3bbab;*/#f1dcd4;/*#ccc4b4;/*#d1b2a1;/*#f1d9af;/*#f3fbe7;/*rgb(169, 187, 166);/*rgb(246, 241, 242);*/
+    /*background: rgb(213,227,192);*/
+    background: #997556;
+    background: #f1ded7;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+   
+}
+/*#contador {
+    border: 3px solid blue;
+}*/
+.iconiux {
+    width: 100px;
+}
+
+.clock{
+    display: flex;
+
+}
+.clock div{
+    margin: 5px;
+    position: relative;
+}
+
+.clock span{
+    /*width: 100px;*/
+    width: 84px;
+    height: 80px;
+    background: #e6d9c8;/*  COLOR DEL FONDO DE LOS DIAS HORAS MIN SEGS rgb(247,173,189)/*210, 186, 182)*/;
+    background: rgb(159, 118, 84);
+    opacity: .8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px rgba(0 0 0 .3);
+}
+.clock .text{
+    height: 30px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: rgb(159, 118, 84);
+   
+    
+    /*background: rgb(106, 69, 104);*/
+    opacity: .8;
+}
+
+.datos h1 {
+    font-weight: 800px;
+    color: rgb(159, 118, 84);
+    
+}
+
+.datos {
+    /*border: 3px solid red;*/
+    width: 220px;
+    color: rgb(159, 118, 84);
+}
+
+/*.datos .iglesiaDatos .mapas,
+.recepcionDatos {
+    text-align: center;
+    width: 200px;
+    border: 3px solid red;
+}*/
+.portada {
+    margin-top: 40px;
+    font-family: 'Montserrat';
+
+}
+
+/*.portada img {
+    margin-top: 40px;
+}*/
+
+.ligas {
+    padding: 0;
+    margin: 0;
+    width: 220px;
+}
+
+.botones a {
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 0;
+    border: 2px solid #ffff;
+    border-radius: 20px;
+    background: rgb(159, 118, 84);/*#e3bbab;/*rgb(247,173,189);*/
+    color: #ffff;
+    display: inline-block;
+    transition: transform 1s;
+}
+.botones a:hover {
+    transform: scale(1.1);
+    color: rgb(159, 118, 84);
+    background: #f1dcd4;/*#e3bbab;/*rgb(159, 118, 84);
+    /*background: rgb(210, 186, 182);
+    color: rgb(84, 12, 74);*/
+}
+
+a .w100{
+    padding: 5px 5px;
+    margin: 0;
+    color: rgb(159, 118, 84);
+    text-decoration: none;
+}
+
+a .w100:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+    color: rgb(210, 186, 182);
+}
+.mapa a.sinDecoracion{
+    text-decoration: none;
+}
+
+.sobre-icono {
+    scale: 2.5;
+    padding: 20px 0;
+}
+.pieDePagina a {
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 1s;
+}
+
+.pieDePagina a:hover {
+    transform: scale(1.2);
+}
+
+.whatsapp:hover {
+    transform: scale(1.5);
+    transition: 0.5s;
+}
+/*a.escala:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+    background: rgb(177, 131, 109);
+}*/
+
+.pieSuperior {
+    width: 100%;
+    height: 60px;
+    background-color: #f1dcd4;
+}
+.pie {
+    width: 100%;
+    height: 40px;
+    background-color: #f1dcd4;
+}
+.pieDePagina2 a {
+    display: inline-block;
+    padding: 15px 0 20px 0;
+    text-decoration: none;
+    transition: 1s;
+}
+.pieDePagina2 a:hover {
+    transform: scale(1.2);
+}
+
+.botonInicio .plaButton {
+    height:45px;
+    width: 110px;
+    border-radius: 25px;
+    border: 2px solid white;
+    background-color: rgb(159, 118, 84);/*#f1dcd4;/*#e5beaf;*/
+    color: white;
+    
+}
+
+.botonInicio .plaButton a {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 1s;
+}
+.botonInicio .plaButton a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.baloons {
+    width: 100px;
+    margin: 0;
+    
+}
