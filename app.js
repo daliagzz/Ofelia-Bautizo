@@ -3,7 +3,7 @@
 const actualizardor=setInterval(function(){
 
 
-    const inicioClase = new Date(`Nov,16 2024 16:00:00`).getTime();
+    const inicioClase = new Date(`Nov,16 2024 11:00:00`).getTime();
     console.log(inicioClase);
     
     const tiempoActual = new Date().getTime();
